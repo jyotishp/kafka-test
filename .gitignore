@@ -1,0 +1,5 @@
+vendor/*
+pkg/proto/*.go
+swagger-ui/*swagger.json
+.idea/*
+build/*

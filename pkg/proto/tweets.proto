@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+//import "protoc-gen-swagger/options/annotations.proto";
+import "google/api/annotations.proto";
+option go_package="pkg/proto";
+package pkg.tweets.service;
+
+message Tweet {
+  // Output only.
+  string tweet_id = 1;
+  string message = 2;
+}
+
+service TweetsService {
+  // Create a new tweet
+  rpc AddTweet(Tweet) returns (Tweet) {
+    option (google.api.http) = {
+      post: "/v1/api/tweet"
+      body: "message"
+    };
+  };
+}
